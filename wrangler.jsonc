@@ -1,0 +1,41 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "website-messages",
+  "main": "./workers/app.ts",
+  "compatibility_date": "2026-07-13",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": "./build/client"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "website-messages",
+      "database_id": "replace-after-running-wrangler-d1-create"
+    }
+  ],
+  "vars": {
+    "GITHUB_OWNER": "ChrisTitusTech",
+    "GITHUB_REPO": "website",
+    "ADMIN_LOGIN": "ChrisTitusTech",
+    "APP_BASE_URL": "http://localhost:5173"
+  },
+  "secrets": {
+    "required": [
+      "GITHUB_CLIENT_ID",
+      "GITHUB_CLIENT_SECRET",
+      "GITHUB_APP_ID",
+      "GITHUB_APP_PRIVATE_KEY",
+      "GITHUB_INSTALLATION_ID",
+      "GITHUB_WEBHOOK_SECRET",
+      "SESSION_ENCRYPTION_KEY"
+    ]
+  },
+  "triggers": {
+    "crons": ["0 9 * * *"]
+  },
+  "observability": {
+    "enabled": true
+  },
+  "upload_source_maps": true
+}

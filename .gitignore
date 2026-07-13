@@ -1,0 +1,9 @@
+node_modules/
+build/
+.react-router/
+.wrangler/
+.dev.vars
+.env
+.DS_Store
+coverage/
+*.tsbuildinfo
